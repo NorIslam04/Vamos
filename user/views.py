@@ -28,3 +28,8 @@ def add_user(request):
     else:
         return render(request, 'user/login.html')
     
+def show_users(request):
+    print(User.objects.all())
+    return render(request, 'user/show.html',{'users': User.objects.all()})
+    
+    
