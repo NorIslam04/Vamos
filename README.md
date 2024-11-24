@@ -1,6 +1,7 @@
-# Approche avec Django Templates et Forms :
-
-pythonCopy# models.py
+#Approche avec Django Templates et Forms :
+##python
+```bash
+models.py
 from django.db import models
 
 class Post(models.Model):
@@ -37,7 +38,10 @@ def forum_view(request):
         'posts': posts,
         'form': form
     })
-htmlCopy<!-- templates/forum.html -->
+```
+##html
+```bash
+Copy<!-- templates/forum.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -68,10 +72,12 @@ htmlCopy<!-- templates/forum.html -->
     {% endfor %}
 </div>
 {% endblock %}
+```
 
-Pour le système de profil :
-
-pythonCopy# models.py
+##Pour le système de profil :
+##python
+```bash
+models.py
 class Profile(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
@@ -99,7 +105,11 @@ def profile_view(request):
         'profile': profile,
         'form': form
     })
-htmlCopy<!-- templates/profile.html -->
+```
+
+##html
+```bash
+<!-- templates/profile.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -126,15 +136,21 @@ htmlCopy<!-- templates/profile.html -->
     </form>
 </div>
 {% endblock %}
+```
 
-Pour le système de recherche :
+##Pour le système de recherche :
 
-pythonCopy# views.py
+##python
+```bash
+views.py
 def search_users(request):
     query = request.GET.get('q', '')
     users = User.objects.filter(username__icontains=query)
     return render(request, 'search.html', {'users': users})
-htmlCopy<!-- templates/search.html -->
+```
+##html
+```bash
+<!-- templates/search.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -157,10 +173,14 @@ htmlCopy<!-- templates/search.html -->
     </div>
 </div>
 {% endblock %}
+```
 
-URLs et configuration :
+##URLs et configuration :
 
-pythonCopy# urls.py
+##python
+
+```bash
+urls.py
 from django.urls import path
 from . import views
 
@@ -170,10 +190,13 @@ urlpatterns = [
     path('search/', views.search_users, name='search'),
     path('follow/<int:user_id>/', views.follow_user, name='follow_user'),
 ]
+```
 
-Ajoutez du CSS pour le style :
+##Ajoutez du CSS pour le style :
 
-pythonCopy# settings.py
+python
+```bash
+# settings.py
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
@@ -198,7 +221,10 @@ cssCopy/* static/css/style.css */
     padding: 10px;
     border-bottom: 1px solid #eee;
 }
-htmlCopy<!-- templates/base.html -->
+```
+html
+```bash
+<!-- templates/base.html -->
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -216,7 +242,8 @@ htmlCopy<!-- templates/base.html -->
     {% endblock %}
 </body>
 </html>
-Avantages de cette approche :
+```
+##Avantages de cette approche :
 
 Plus simple à mettre en place
 Pas besoin de JavaScript complexe
