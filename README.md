@@ -1,5 +1,5 @@
-#Approche avec Django Templates et Forms :
-##python
+# 1.Approche avec Django Templates et Forms :
+## python
 ```bash
 models.py
 from django.db import models
@@ -39,7 +39,7 @@ def forum_view(request):
         'form': form
     })
 ```
-##html
+## html
 ```bash
 Copy<!-- templates/forum.html -->
 {% extends 'base.html' %}
@@ -74,8 +74,8 @@ Copy<!-- templates/forum.html -->
 {% endblock %}
 ```
 
-##Pour le système de profil :
-##python
+## 2.Pour le système de profil :
+## python
 ```bash
 models.py
 class Profile(models.Model):
@@ -107,7 +107,7 @@ def profile_view(request):
     })
 ```
 
-##html
+## html
 ```bash
 <!-- templates/profile.html -->
 {% extends 'base.html' %}
@@ -138,9 +138,8 @@ def profile_view(request):
 {% endblock %}
 ```
 
-##Pour le système de recherche :
-
-##python
+## 3.Pour le système de recherche :
+## python
 ```bash
 views.py
 def search_users(request):
@@ -148,7 +147,7 @@ def search_users(request):
     users = User.objects.filter(username__icontains=query)
     return render(request, 'search.html', {'users': users})
 ```
-##html
+## html
 ```bash
 <!-- templates/search.html -->
 {% extends 'base.html' %}
@@ -175,10 +174,8 @@ def search_users(request):
 {% endblock %}
 ```
 
-##URLs et configuration :
-
-##python
-
+## 4.URLs et configuration :
+## python
 ```bash
 urls.py
 from django.urls import path
@@ -192,9 +189,8 @@ urlpatterns = [
 ]
 ```
 
-##Ajoutez du CSS pour le style :
-
-python
+## Ajoutez du CSS pour le style :
+## python
 ```bash
 # settings.py
 STATIC_URL = '/static/'
@@ -222,7 +218,7 @@ cssCopy/* static/css/style.css */
     border-bottom: 1px solid #eee;
 }
 ```
-html
+## html
 ```bash
 <!-- templates/base.html -->
 {% load static %}
@@ -243,9 +239,9 @@ html
 </body>
 </html>
 ```
-##Avantages de cette approche :
+# Avantages de cette approche :
 
-Plus simple à mettre en place
+** Plus simple à mettre en place **
 Pas besoin de JavaScript complexe
 Rendu côté serveur plus rapide
 Meilleure SEO
