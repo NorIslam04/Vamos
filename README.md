@@ -241,9 +241,9 @@ cssCopy/* static/css/style.css */
 ```
 # Avantages de cette approche :
 
-**Plus simple à mettre en place**
-**Pas besoin de JavaScript complexe**
-**Rendu côté serveur plus rapide**
-**Meilleure SEO**
-**Moins de code à maintenir**
+- **Plus simple à mettre en place**
+- **Pas besoin de JavaScript complexe**
+- **Rendu côté serveur plus rapide**
+- **Meilleure SEO**
+- **Moins de code à maintenir**
 
